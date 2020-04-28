@@ -57,6 +57,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<EmployeeDetails> getAllEmployees(Integer pageNo, Integer pageSize, String sortBy) {
 		Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
 		 
+		//Pageable pageable = PageRequest.of(pageNo, pageSize, Sort.by(
+	   // Order.asc("name"),
+	   // Order.desc("id")));
+		
+		// For more detail refer this url
+		//https://howtodoinjava.com/spring-boot2/pagination-sorting-example/
+		
         Page<EmployeeDetails> pagedResult = paginationRepository.findAll(paging);
          
         if(pagedResult.hasContent()) {
